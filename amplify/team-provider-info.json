@@ -10,6 +10,17 @@
       "StackName": "amplify-petstagram-dev-24953",
       "StackId": "arn:aws:cloudformation:ap-northeast-2:542652840554:stack/amplify-petstagram-dev-24953/aac04960-a5ee-11eb-b1a4-06154f72f87e",
       "AmplifyAppId": "d39wi50i5nk2ll"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d39wi50i5nk2ll",
+          "type": "manual"
+        }
+      },
+      "auth": {
+        "petstagramab081276": {}
+      }
     }
   }
 }
