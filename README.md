@@ -241,7 +241,13 @@ $ amplify add hosting
 ? Choose a type: Manual deployment
 ```
 
-`amplify publish` 명령어로 hosting 으로 배포를 해봅니다.
+`amplify push` 명령어로 `add hosting` 변경사항을 적용해봅니다.
+
+```sh
+$ amplify push
+```
+
+`amplify publish` 명령어로 hosting 으로 어플리케이션 배포를 해봅니다.
 
 ```sh
 $ amplify publish
