@@ -57,7 +57,7 @@ $ yarn add aws-amplify @aws-amplify/ui-react
 Tailwind CSS 관련 패키지를 설치합시다. devDependencies 에만 들어가도록 설치합니다.
 
 ```sh
-$ yarn add --dev tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
+$ yarn add --dev tailwindcss@latest postcss@latest autoprefixer@latest @tailwindcss/forms
 ```
 
 Tailwind 관련 설정 파일들 (`tailwind.config.js` `postcss.config.js`) 생성을 위해 다음 명령어를 실행합니다.
