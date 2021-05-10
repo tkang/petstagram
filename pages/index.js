@@ -1,13 +1,8 @@
 import Head from "next/head";
 import React, { useState, useEffect } from "react";
-// import API and Auth from Amplify library
 import { API, Auth, Storage } from "aws-amplify";
-// import query definition
 import { listPosts } from "../src/graphql/queries";
-
-// pages/_app.js, import the withAuthenticator component
 import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
-
 import Link from "next/link";
 import * as mutations from "../src/graphql/mutations";
 import * as subscriptions from "../src/graphql/subscriptions";
@@ -18,7 +13,7 @@ function Post({ post }) {
 
   async function getImage() {
     const image = await Storage.get(post.image);
-    console.log(image);
+    console.log("image = ", image);
   }
 
   useEffect(() => {
@@ -67,7 +62,11 @@ function DeletePostButton({ post }) {
     console.log("deletedPost = ", deletedPost);
   }
 
-  return <button onClick={deletePost}>Delete</button>;
+  return (
+    <button className="text-sm text-red-500" onClick={deletePost}>
+      Delete
+    </button>
+  );
 }
 
 function Home() {
@@ -148,22 +147,35 @@ function Home() {
         />
       </Head>
 
-      <main className="flex-col items-center justify-center flex-1">
-        {posts.map((post) => (
-          <div className="mb-3" key={post.id}>
-            <Post post={post} />
+      <div className="container mx-auto">
+        <main className="bg-white">
+          <AmplifySignOut />
+          <div className="px-4 py-16 mx-auto max-w-7xl sm:py-24 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <p className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+                Welcome To Petstagram
+              </p>
+              <p className="max-w-xl mx-auto mt-5 text-xl text-gray-500">
+                Place for Doggy🐕 & Catty🐕
+              </p>
+            </div>
           </div>
-        ))}
-        <button
-          type="button"
-          className="inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        >
-          <Link href="/addnewpost">Add New Post</Link>
-        </button>
+          <div className="w-3/4 mx-auto mt-5 text-xl">
+            {posts.map((post) => (
+              <div className="mb-3" key={post.id}>
+                <Post post={post} />
+              </div>
+            ))}
 
-        <br />
-        <AmplifySignOut />
-      </main>
+            <button
+              type="button"
+              className="inline-flex items-center px-6 py-3 text-base font-medium text-center text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              <Link href="/addnewpost">Add New Post</Link>
+            </button>
+          </div>
+        </main>
+      </div>
 
       <footer></footer>
     </div>

@@ -115,18 +115,21 @@ function Home() {
       </Head>
 
       <div className="container mx-auto">
-        <main className="flex-1 flex-col justify-center items-center">
-          <h1 className="text-6xl">Welcome to Petstagram</h1>
-
-          <p className="text-2xl">Let's get started with Petstagram</p>
-
-          <div>Hello World</div>
+        <main className="bg-white">
+          <div className="px-4 py-16 mx-auto max-w-7xl sm:py-24 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <p className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+                Welcome To Petstagram
+              </p>
+              <p className="max-w-xl mx-auto mt-5 text-xl text-gray-500">
+                Place for Doggy🐕 & Catty🐕
+              </p>
+            </div>
+          </div>
         </main>
       </div>
 
-      <footer className="flex items-center justify-center border-t-1 h-8">
-        Footer Here
-      </footer>
+      <footer></footer>
     </div>
   );
 }
@@ -454,6 +457,29 @@ function Home() {
         </main>
       </div>
 
+      <div className="container mx-auto">
+        <main className="bg-white">
+          <AmplifySignOut />
+          <div className="px-4 py-16 mx-auto max-w-7xl sm:py-24 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <p className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+                Welcome To Petstagram
+              </p>
+              <p className="max-w-xl mx-auto mt-5 text-xl text-gray-500">
+                Place for Doggy🐕 & Catty🐕
+              </p>
+            </div>
+          </div>
+          <div className="w-3/4 mx-auto mt-5 text-xl">
+            {posts.map((post) => (
+              <div className="mb-3" key={post.id}>
+                <Post post={post} />
+              </div>
+            ))}
+          </div>
+        </main>
+      </div>
+
       <footer className="flex items-center justify-center border-t-1 h-8">
         Footer Here
       </footer>
@@ -753,69 +779,72 @@ function AddNewPost() {
         />
       </Head>
 
-      <main className="flex-col items-center justify-center flex-1">
-        <form className="space-y-8 divide-y divide-gray-200">
-          <div className="space-y-8 divide-y divide-gray-200">
-            <div>
+      <main className="bg-white">
+        <AmplifySignOut />
+        <div className="px-4 py-16 mx-auto max-w-7xl sm:py-24 sm:px-6 lg:px-8">
+          <form className="space-y-8 divide-y divide-gray-200">
+            <div className="space-y-8 divide-y divide-gray-200">
               <div>
-                <h3 className="text-lg font-medium leading-6 text-gray-900">
-                  Add New Post
-                </h3>
-              </div>
-              <div className="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
-                <div className="sm:col-span-6">
-                  <label
-                    htmlFor="title"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    Title
-                  </label>
-                  <div className="mt-1">
-                    <textarea
-                      id="title"
-                      name="title"
-                      rows={1}
-                      className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      value={formData.title}
-                      onChange={handleChange}
-                    />
+                <div>
+                  <h3 className="text-lg font-medium leading-6 text-gray-900">
+                    Add New Post
+                  </h3>
+                </div>
+                <div className="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
+                  <div className="sm:col-span-6">
+                    <label
+                      htmlFor="title"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Title
+                    </label>
+                    <div className="mt-1">
+                      <textarea
+                        id="title"
+                        name="title"
+                        rows={1}
+                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        value={formData.title}
+                        onChange={handleChange}
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
-                <div className="sm:col-span-6">
-                  <label
-                    htmlFor="description"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    Description
-                  </label>
-                  <div className="mt-1">
-                    <textarea
-                      id="description"
-                      name="description"
-                      rows={3}
-                      className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      value={formData.description}
-                      onChange={handleChange}
-                    />
+                <div className="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
+                  <div className="sm:col-span-6">
+                    <label
+                      htmlFor="description"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Description
+                    </label>
+                    <div className="mt-1">
+                      <textarea
+                        id="description"
+                        name="description"
+                        rows={3}
+                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        value={formData.description}
+                        onChange={handleChange}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <button
-            onClick={createNewData}
-            type="button"
-            className={`disabled:opacity-50 inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${
-              disableBtn && "cursor-not-allowed"
-            }`}
-          >
-            {submitInProgress ? "Submit In Progress..." : "Add New Post"}
-          </button>
-        </form>
+            <button
+              onClick={createNewData}
+              type="button"
+              className={`disabled:opacity-50 inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${
+                disableBtn && "cursor-not-allowed"
+              }`}
+            >
+              {submitInProgress ? "Submit In Progress..." : "Add New Post"}
+            </button>
+          </form>
+        </div>
       </main>
 
       <footer></footer>
@@ -837,22 +866,35 @@ import Link from "next/link";
 
 /* 이전과 동일 */
 
-<main className="flex-col items-center justify-center flex-1">
-  {posts.map((post) => (
-    <div key={post.id}>
-      <h3>{post.title}</h3>
-      <p>{post.description}</p>
+<div className="container mx-auto">
+  <main className="bg-white">
+    <AmplifySignOut />
+    <div className="px-4 py-16 mx-auto max-w-7xl sm:py-24 sm:px-6 lg:px-8">
+      <div className="text-center">
+        <p className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+          Welcome To Petstagram
+        </p>
+        <p className="max-w-xl mx-auto mt-5 text-xl text-gray-500">
+          Place for Doggy🐕 & Catty🐕
+        </p>
+      </div>
     </div>
-  ))}
-  <button
-    type="button"
-    className="inline-flex items-center px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-  >
-    <Link href="/addnewpost">Add New Post</Link>
-  </button>
+    <div className="w-3/4 mx-auto mt-5 text-xl">
+      {posts.map((post) => (
+        <div className="mb-3" key={post.id}>
+          <Post post={post} />
+        </div>
+      ))}
 
-  <AmplifySignOut />
-</main>;
+      <button
+        type="button"
+        className="inline-flex items-center px-6 py-3 text-base font-medium text-center text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+      >
+        <Link href="/addnewpost">Add New Post</Link>
+      </button>
+    </div>
+  </main>
+</div>;
 ```
 
 페이지에서 버튼이 잘 동작하는지 확인해봅시다.
@@ -905,7 +947,11 @@ function DeletePostButton({ post }) {
     console.log("deletedPost = ", deletedPost);
   }
 
-  return <button onClick={deletePost}>Delete</button>;
+  return (
+    <button className="text-sm text-red-500" onClick={deletePost}>
+      Delete
+    </button>
+  );
 }
 ```
 
@@ -1048,79 +1094,84 @@ function AddNewPost() {
         />
       </Head>
 
-      <main className="flex-col items-center justify-center flex-1">
-        <form className="space-y-8 divide-y divide-gray-200">
-          <div className="space-y-8 divide-y divide-gray-200">
-            <div>
-              <div>
-                <h3 className="text-lg font-medium leading-6 text-gray-900">
-                  Add New Post
-                </h3>
-              </div>
-              <div className="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
-                <div className="sm:col-span-6">
-                  <label
-                    htmlFor="title"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    Title
-                  </label>
-                  <div className="mt-1">
-                    <textarea
-                      id="title"
-                      name="title"
-                      rows={1}
-                      className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      value={formData.title}
-                      onChange={handleChange}
-                    />
+      <div className="container mx-auto">
+        <main className="bg-white">
+          <AmplifySignOut />
+          <div className="px-4 py-16 mx-auto max-w-7xl sm:py-24 sm:px-6 lg:px-8">
+            <form className="space-y-8 divide-y divide-gray-200">
+              <div className="space-y-8 divide-y divide-gray-200">
+                <div>
+                  <div>
+                    <h3 className="text-lg font-medium leading-6 text-gray-900">
+                      Add New Post
+                    </h3>
+                  </div>
+                  <div className="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
+                    <div className="sm:col-span-6">
+                      <label
+                        htmlFor="title"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Title
+                      </label>
+                      <div className="mt-1">
+                        <textarea
+                          id="title"
+                          name="title"
+                          rows={1}
+                          className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                          value={formData.title}
+                          onChange={handleChange}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
+                    <div className="sm:col-span-6">
+                      <label
+                        htmlFor="description"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Description
+                      </label>
+                      <div className="mt-1">
+                        <textarea
+                          id="description"
+                          name="description"
+                          rows={3}
+                          className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                          value={formData.description}
+                          onChange={handleChange}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
+                    <div className="sm:col-span-6">
+                      <input
+                        type="file"
+                        onChange={handleFileInputChange}
+                      ></input>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
-                <div className="sm:col-span-6">
-                  <label
-                    htmlFor="description"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    Description
-                  </label>
-                  <div className="mt-1">
-                    <textarea
-                      id="description"
-                      name="description"
-                      rows={3}
-                      className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      value={formData.description}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
-                <div className="sm:col-span-6">
-                  <input type="file" onChange={handleFileInputChange}></input>
-                </div>
-              </div>
-            </div>
+              <button
+                onClick={createNewData}
+                type="button"
+                className={`disabled:opacity-50 inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${
+                  disableBtn && "cursor-not-allowed"
+                }`}
+              >
+                {submitInProgress ? "Submit In Progress..." : "Add New Post"}
+              </button>
+            </form>
           </div>
-
-          <button
-            onClick={createNewData}
-            type="button"
-            className={`disabled:opacity-50 inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${
-              disableBtn && "cursor-not-allowed"
-            }`}
-          >
-            {submitInProgress ? "Submit In Progress..." : "Add New Post"}
-          </button>
-        </form>
-      </main>
-
-      <br />
-      <AmplifySignOut />
+        </main>
+      </div>
 
       <footer></footer>
     </div>
@@ -1198,7 +1249,11 @@ function DeletePostButton({ post }) {
     console.log("deletedPost = ", deletedPost);
   }
 
-  return <button onClick={deletePost}>Delete</button>;
+  return (
+    <button className="text-sm text-red-500" onClick={deletePost}>
+      Delete
+    </button>
+  );
 }
 ```
 
@@ -1233,899 +1288,3 @@ $ amplify status
 ```sh
 $ amplify delete
 ```
-
-<!--
-### Creating a basic photo album
-
-Let's update our code to implement a photo picker and photo album.
-
-When the app loads, we will make an API call to S3 to list the images in the bucket and render them to the screen.
-
-When a user uploads a new image, we'll also refresh the list of images along with the new image.
-
-```js
-// src/App.js
-import React, { useState, useEffect } from "react";
-import { Storage } from "aws-amplify";
-import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
-import { v4 as uuid } from "uuid";
-
-function App() {
-  const [images, setImages] = useState([]);
-  useEffect(() => {
-    fetchImages();
-  }, []);
-  async function fetchImages() {
-    // Fetch list of images from S3
-    let s3images = await Storage.list("");
-    // Get presigned URL for S3 images to display images in app
-    s3images = await Promise.all(
-      s3images.map(async (image) => {
-        const signedImage = await Storage.get(image.key);
-        return signedImage;
-      })
-    );
-    setImages(s3images);
-  }
-  function onChange(e) {
-    if (!e.target.files[0]) return;
-    const file = e.target.files[0];
-    // upload the image then fetch and rerender images
-    Storage.put(uuid(), file).then(() => fetchImages());
-  }
-
-  return (
-    <div>
-      <h1>Photo Album</h1>
-      <span>Add new image</span>
-      <input type="file" accept="image/png" onChange={onChange} />
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        {images.map((image) => (
-          <img src={image} style={{ width: 400, marginBottom: 10 }} />
-        ))}
-      </div>
-      <AmplifySignOut />
-    </div>
-  );
-}
-
-export default withAuthenticator(App);
-```
-
-Now we can start saving images to S3 and we can also download and view them using the Storage category from AWS Amplify.
-
-To view the images as well as your S3 bucket at any time, do the following:
-
-1. Run `amplify console` from your terminal
-2. Click on the **File Storage** tab
-3. Click on **View in S3** in the top right corner
-4. Click on the **public** bucket
-
-Next, we'll continue by building the Photo Sharing App Travel app.
-
-# Photo Sharing App Travel App
-
-Now that we have the services we need, let's continue by building out the front end of the app.
-
-### Creating the folder structure for our app
-
-Next, create the following files in the **src** directory:
-
-```sh
-Button.js
-CreatePost.js
-Header.js
-Post.js
-Posts.js
-```
-
-Next, we'll go one by one and update these files with our new code.
-
-### Button.js
-
-Here, we will create a button that we'll be reusing across the app:
-
-```js
-import React from "react";
-import { css } from "emotion";
-
-export default function Button({ title, onClick, type = "action" }) {
-  return (
-    <button className={buttonStyle(type)} onClick={onClick}>
-      {title}
-    </button>
-  );
-}
-
-const buttonStyle = (type) => css`
-  background-color: ${type === "action" ? "black" : "red"};
-  height: 40px;
-  width: 160px;
-  font-weight: 600;
-  font-size: 16px;
-  color: white;
-  outline: none;
-  border: none;
-  margin-top: 5px;
-  cursor: pointer;
-  :hover {
-    background-color: #363636;
-  }
-`;
-```
-
-### Header.js
-
-Add the following code in **Header.js**
-
-```js
-import React from "react";
-import { css } from "emotion";
-import { Link } from "react-router-dom";
-
-export default function Header() {
-  return (
-    <div className={headerContainer}>
-      <h1 className={headerStyle}>Postagram</h1>
-      <Link to="/" className={linkStyle}>
-        All Posts
-      </Link>
-    </div>
-  );
-}
-
-const headerContainer = css`
-  padding-top: 20px;
-`;
-
-const headerStyle = css`
-  font-size: 40px;
-  margin-top: 0px;
-`;
-
-const linkStyle = css`
-  color: black;
-  font-weight: bold;
-  text-decoration: none;
-  margin-right: 10px;
-  :hover {
-    color: #058aff;
-  }
-`;
-```
-
-## Posts.js
-
-The next thing we'll do is create the **Posts** component to render a list of posts.
-
-This will go in the main view of the app. The only data from the post that will be rendered in this view is the post name and post image.
-
-The `posts` array will be passed in as a prop to the **Posts** component.
-
-```js
-import React from "react";
-import { css } from "emotion";
-import { Link } from "react-router-dom";
-
-export default function Posts({ posts = [] }) {
-  return (
-    <>
-      <h1>Posts</h1>
-      {posts.map((post) => (
-        <Link to={`/post/${post.id}`} className={linkStyle} key={post.id}>
-          <div key={post.id} className={postContainer}>
-            <h1 className={postTitleStyle}>{post.name}</h1>
-            <img alt="post" className={imageStyle} src={post.image} />
-          </div>
-        </Link>
-      ))}
-    </>
-  );
-}
-
-const postTitleStyle = css`
-  margin: 15px 0px;
-  color: #0070f3;
-`;
-
-const linkStyle = css`
-  text-decoration: none;
-`;
-
-const postContainer = css`
-  border-radius: 10px;
-  padding: 1px 20px;
-  border: 1px solid #ddd;
-  margin-bottom: 20px;
-  :hover {
-    border-color: #0070f3;
-  }
-`;
-
-const imageStyle = css`
-  width: 100%;
-  max-width: 400px;
-`;
-```
-
-## CreatePost.js
-
-The next component we'll create is `CreatePost`. This component is a form that will be displayed to the user as an `overlay` or a `modal`. In it, the user will be able to toggle the overlay to show and hide it, and also be able to create a new post.
-
-The props this component will receive are the following:
-
-1. `updateOverlayVisibility` - This function will toggle the overlay to show / hide it
-2. `updatePosts` - This function will allow us to update the main posts array
-3. `posts` - The posts coming back from our API
-
-This component has a lot going on, so before we dive into the code let's walk through what is happening:
-
-1. We create some initial state using the `useState` hook. This state is created using the `initialState` object.
-2. The `onChangeText` handler sets the name, description, and location fields of the post
-3. The `onChangeImage` handler allows the user to upload an image and saves it to state. It also creates a unique image name.
-4. The `save` function does the following:
-
-- First checks to make sure that all of the form fields are populated
-- Next it updates the `saving` state to true to show a saving indicator
-- We then create a unique ID for the post using the `uuid` library
-- Using the form state and the `uuid`, we create a post object that will be sent to the API.
-- Next, we upload the image to S3 using `Storage.put`, passing in the image name and the file
-- Once the image upload is successful, we create the `post` in our GraphQL API
-- Finally, we update the local state, close the popup, and update the local `posts` array with the new post
-
-```js
-import React, { useState } from "react";
-import { css } from "emotion";
-import Button from "./Button";
-import { v4 as uuid } from "uuid";
-import { Storage, API, Auth } from "aws-amplify";
-import { createPost } from "./graphql/mutations";
-
-/* Initial state to hold form input, saving state */
-const initialState = {
-  name: "",
-  description: "",
-  image: {},
-  file: "",
-  location: "",
-  saving: false,
-};
-
-export default function CreatePost({
-  updateOverlayVisibility,
-  updatePosts,
-  posts,
-}) {
-  /* 1. Create local state with useState hook */
-  const [formState, updateFormState] = useState(initialState);
-
-  /* 2. onChangeText handler updates the form state when a user types into a form field */
-  function onChangeText(e) {
-    e.persist();
-    updateFormState((currentState) => ({
-      ...currentState,
-      [e.target.name]: e.target.value,
-    }));
-  }
-
-  /* 3. onChangeFile handler will be fired when a user uploads a file  */
-  function onChangeFile(e) {
-    e.persist();
-    if (!e.target.files[0]) return;
-    const image = {
-      fileInfo: e.target.files[0],
-      name: `${e.target.files[0].name}_${uuid()}`,
-    };
-    updateFormState((currentState) => ({
-      ...currentState,
-      file: URL.createObjectURL(e.target.files[0]),
-      image,
-    }));
-  }
-
-  /* 4. Save the post  */
-  async function save() {
-    try {
-      const { name, description, location, image } = formState;
-      if (!name || !description || !location || !image.name) return;
-      updateFormState((currentState) => ({ ...currentState, saving: true }));
-      const postId = uuid();
-      const postInfo = {
-        name,
-        description,
-        location,
-        image: formState.image.name,
-        id: postId,
-      };
-
-      await Storage.put(formState.image.name, formState.image.fileInfo);
-      await API.graphql({
-        query: createPost,
-        variables: { input: postInfo },
-      });
-      updatePosts([...posts, { ...postInfo, image: formState.file }]);
-      updateFormState((currentState) => ({ ...currentState, saving: false }));
-      updateOverlayVisibility(false);
-    } catch (err) {
-      console.log("error: ", err);
-    }
-  }
-
-  return (
-    <div className={containerStyle}>
-      <input
-        placeholder="Post name"
-        name="name"
-        className={inputStyle}
-        onChange={onChangeText}
-      />
-      <input
-        placeholder="Location"
-        name="location"
-        className={inputStyle}
-        onChange={onChangeText}
-      />
-      <input
-        placeholder="Description"
-        name="description"
-        className={inputStyle}
-        onChange={onChangeText}
-      />
-      <input type="file" onChange={onChangeFile} />
-      {formState.file && (
-        <img className={imageStyle} alt="preview" src={formState.file} />
-      )}
-      <Button title="Create New Post" onClick={save} />
-      <Button
-        type="cancel"
-        title="Cancel"
-        onClick={() => updateOverlayVisibility(false)}
-      />
-      {formState.saving && <p className={savingMessageStyle}>Saving post...</p>}
-    </div>
-  );
-}
-
-const inputStyle = css`
-  margin-bottom: 10px;
-  outline: none;
-  padding: 7px;
-  border: 1px solid #ddd;
-  font-size: 16px;
-  border-radius: 4px;
-`;
-
-const imageStyle = css`
-  height: 120px;
-  margin: 10px 0px;
-  object-fit: contain;
-`;
-
-const containerStyle = css`
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  height: 420px;
-  position: fixed;
-  left: 0;
-  border-radius: 4px;
-  top: 0;
-  margin-left: calc(50vw - 220px);
-  margin-top: calc(50vh - 230px);
-  background-color: white;
-  border: 1px solid #ddd;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.125rem 0.25rem;
-  padding: 20px;
-`;
-
-const savingMessageStyle = css`
-  margin-bottom: 0px;
-`;
-```
-
-## Post.js
-
-The next component that we'll build is the Post component.
-
-In this component, we will be reading the post `id` from the router parameters. We'll then use this post `id` to make an API call to the GraphQL API to fetch the post details.
-
-Another thing to look at is how we deal with images.
-
-When storing an image in S3, we
-
-```js
-import React, { useState, useEffect } from "react";
-import { css } from "emotion";
-import { useParams } from "react-router-dom";
-import { API, Storage } from "aws-amplify";
-import { getPost } from "./graphql/queries";
-
-export default function Post() {
-  const [loading, updateLoading] = useState(true);
-  const [post, updatePost] = useState(null);
-  const { id } = useParams();
-  useEffect(() => {
-    fetchPost();
-  }, []);
-  async function fetchPost() {
-    try {
-      const postData = await API.graphql({
-        query: getPost,
-        variables: { id },
-      });
-      const currentPost = postData.data.getPost;
-      const image = await Storage.get(currentPost.image);
-
-      currentPost.image = image;
-      updatePost(currentPost);
-      updateLoading(false);
-    } catch (err) {
-      console.log("error: ", err);
-    }
-  }
-  if (loading) return <h3>Loading...</h3>;
-  console.log("post: ", post);
-  return (
-    <>
-      <h1 className={titleStyle}>{post.name}</h1>
-      <h3 className={locationStyle}>{post.location}</h3>
-      <p>{post.description}</p>
-      <img alt="post" src={post.image} className={imageStyle} />
-    </>
-  );
-}
-
-const titleStyle = css`
-  margin-bottom: 7px;
-`;
-
-const locationStyle = css`
-  color: #0070f3;
-  margin: 0;
-`;
-
-const imageStyle = css`
-  max-width: 500px;
-  @media (max-width: 500px) {
-    width: 100%;
-  }
-`;
-```
-
-## Router - App.js
-
-Next, create the router in App.js. Our app will have two main routes:
-
-1. A home route - `/`. This route will render a list of posts from our API
-2. A post details route - `/post/:id`. This route will render a single post and details about that post.
-
-Using React Router, we can read the Post ID from the route and fetch the post associated with it. This is a common pattern in many apps as it makes the link shareable.
-
-Another way to do this would be to have some global state management set up and setting the post ID in the global state. The main drawback of this approach is that the URL cannot be shared.
-
-Other than routing, the main functionality happening in this component is an `API` call to fetch posts from our API.
-
-```js
-import React, { useState, useEffect } from "react";
-import { HashRouter, Switch, Route } from "react-router-dom";
-import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
-import { css } from "emotion";
-import { API, Storage, Auth } from "aws-amplify";
-import { listPosts } from "./graphql/queries";
-
-import Posts from "./Posts";
-import Post from "./Post";
-import Header from "./Header";
-import CreatePost from "./CreatePost";
-import Button from "./Button";
-
-function Router() {
-  /* create a couple of pieces of initial state */
-  const [showOverlay, updateOverlayVisibility] = useState(false);
-  const [posts, updatePosts] = useState([]);
-
-  /* fetch posts when component loads */
-  useEffect(() => {
-    fetchPosts();
-  }, []);
-  async function fetchPosts() {
-    /* query the API, ask for 100 items */
-    let postData = await API.graphql({
-      query: listPosts,
-      variables: { limit: 100 },
-    });
-    let postsArray = postData.data.listPosts.items;
-    /* map over the image keys in the posts array, get signed image URLs for each image */
-    postsArray = await Promise.all(
-      postsArray.map(async (post) => {
-        const imageKey = await Storage.get(post.image);
-        post.image = imageKey;
-        return post;
-      })
-    );
-    /* update the posts array in the local state */
-    setPostState(postsArray);
-  }
-  async function setPostState(postsArray) {
-    updatePosts(postsArray);
-  }
-  return (
-    <>
-      <HashRouter>
-        <div className={contentStyle}>
-          <Header />
-          <hr className={dividerStyle} />
-          <Button
-            title="New Post"
-            onClick={() => updateOverlayVisibility(true)}
-          />
-          <Switch>
-            <Route exact path="/">
-              <Posts posts={posts} />
-            </Route>
-            <Route path="/post/:id">
-              <Post />
-            </Route>
-          </Switch>
-        </div>
-        <AmplifySignOut />
-      </HashRouter>
-      {showOverlay && (
-        <CreatePost
-          updateOverlayVisibility={updateOverlayVisibility}
-          updatePosts={setPostState}
-          posts={posts}
-        />
-      )}
-    </>
-  );
-}
-
-const dividerStyle = css`
-  margin-top: 15px;
-`;
-
-const contentStyle = css`
-  min-height: calc(100vh - 45px);
-  padding: 0px 40px;
-`;
-
-export default withAuthenticator(Router);
-```
-
-### Deleting the existing data
-
-Now the app is ready to test out, but before we do let's delete the existing data in the database. To do so, follow these steps:
-
-1. Open the Amplify Console
-
-```sh
-$ amplify console
-```
-
-2. Click on **API**, then click on **PostTable** under the **Data sources** tab.
-
-3. Click on the **Items** tab.
-
-4. Select the items in the database and delete them by choosing **Delete** from the **Actions** button.
-
-### Testing the app
-
-Now we can try everything out. To start the app, run the `start` command:
-
-```sh
-$ npm start
-```
-
-## Hosting
-
-The Amplify Console is a hosting service with continuous integration and deployment.
-
-The first thing we need to do is [create a new GitHub repo](https://github.com/new) for this project. Once we've created the repo, we'll copy the URL for the project to the clipboard & initialize git in our local project:
-
-```sh
-$ git init
-
-$ git remote add origin git@github.com:username/project-name.git
-
-$ git add .
-
-$ git commit -m 'initial commit'
-
-$ git push origin master
-```
-
-Next we'll visit the Amplify Console for the app we've already deployed:
-
-```sh
-$ amplify console
-```
-
-In the **Frontend Environments** section, under **Connect a frontend web app** choose **GitHub** then then click on **Connect branch**.
-
-Next, under "Frontend environments", authorize Github as the repository service.
-
-Next, we'll choose the new repository & branch for the project we just created & click **Next**.
-
-In the next screen, we'll create a new role & use this role to allow the Amplify Console to deploy these resources & click **Next**.
-
-Finally, we can click **Save and Deploy** to deploy our application!
-
-Now, we can push updates to Master to update our application.
-
-## Adding Authorization to the GraphQL API
-
-You can update the AppSync API to enable multiple authorization modes.
-
-In this example, we will update the API to use the both Cognito and API Key to enable a combination of public and private access. This will also enable us to implement authorization for the API.
-
-To enable multiple authorization modes, reconfigure the API:
-
-```sh
-$ amplify update api
-
-? Please select from one of the below mentioned services: GraphQL
-? Select from the options below: Update auth settings
-? Choose the default authorization type for the API: API key
-? Enter a description for the API key: public
-? After how many days from now the API key should expire (1-365): 365 <or your preferred expiration>
-? Configure additional auth types? Y
-? Choose the additional authorization types you want to configure for the API: Amazon Cognito User Pool
-```
-
-Now, update the GraphQL schema to the following:
-
-**amplify/backend/api/Postagram/schema.graphql**
-
-```graphql
-type Post
-  @model
-  @auth(
-    rules: [
-      { allow: owner }
-      { allow: public, operations: [read] }
-      { allow: private, operations: [read] }
-    ]
-  ) {
-  id: ID!
-  name: String!
-  location: String!
-  description: String!
-  image: String
-  owner: String
-}
-```
-
-Deploy the changes:
-
-```sh
-$ amplify push -y
-```
-
-Now, you will have two types of API access:
-
-1. Private (Cognito) - to create a post, a user must be signed in. Once they have created a post, they can update and delete their own post. They can also read all posts.
-2. Public (API key) - Any user, regardless if they are signed in, can query for posts or a single post.
-
-Using this combination, you can easily query for just a single user's posts or for all posts.
-
-To make this secondary private API call from the client, the authorization type needs to be specified in the query or mutation:
-
-```js
-const postData = await API.graphql({
-  mutation: createPost,
-  authMode: "AMAZON_COGNITO_USER_POOLS",
-  variables: {
-    input: postInfo,
-  },
-});
-```
-
-### Adding a new route to view only your own posts
-
-Next we will update the app to create a new route for viewing only the posts that we've created.
-
-To do so, first open **CreatePost.js** and update the `save` mutation with the following to specify the `authmode` and set the owner of the post in the local state:
-
-```js
-async function save() {
-  try {
-    const { name, description, location, image } = formState;
-    if (!name || !description || !location || !image.name) return;
-    updateFormState((currentState) => ({ ...currentState, saving: true }));
-    const postId = uuid();
-    const postInfo = {
-      name,
-      description,
-      location,
-      image: formState.image.name,
-      id: postId,
-    };
-
-    await Storage.put(formState.image.name, formState.image.fileInfo);
-    await API.graphql({
-      query: createPost,
-      variables: { input: postInfo },
-      authMode: "AMAZON_COGNITO_USER_POOLS",
-    }); // updated
-    const { username } = await Auth.currentAuthenticatedUser(); // new
-    updatePosts([
-      ...posts,
-      { ...postInfo, image: formState.file, owner: username },
-    ]); // updated
-    updateFormState((currentState) => ({ ...currentState, saving: false }));
-    updateOverlayVisibility(false);
-  } catch (err) {
-    console.log("error: ", err);
-  }
-}
-```
-
-Next, open **App.js**.
-
-Create a new piece of state to hold your own posts named `myPosts`:
-
-```js
-const [myPosts, updateMyPosts] = useState([]);
-```
-
-Next, in the `setPostState` method, update `myPosts` with posts from the signed in user:
-
-```js
-async function setPostState(postsArray) {
-  const user = await Auth.currentAuthenticatedUser();
-  const myPostData = postsArray.filter((p) => p.owner === user.username);
-  updateMyPosts(myPostData);
-  updatePosts(postsArray);
-}
-```
-
-Now, add a new route to show your posts:
-
-```js
-<Route exact path="/myposts">
-  <Posts posts={myPosts} />
-</Route>
-```
-
-Finally, open **Header.js** and add a link to the new route:
-
-```js
-<Link to="/myposts" className={linkStyle}>
-  My Posts
-</Link>
-```
-
-Next, test it out:
-
-```sh
-$ npm start
-```
-
-## Additional learning & use cases
-
-### Relationships
-
-What if we wanted to create a relationship between the Post and another type.
-
-In this example, we add a new `Comment` type and create a relationship using the `@connection` directive. Doing this will enable a one to many relationship between `Post` and `Comment` types.
-
-```graphql
-# amplify/backend/api/Postagram/schema.graphql
-
-type Post
-  @model
-  @auth(
-    rules: [
-      { allow: owner }
-      { allow: public, operations: [read] }
-      { allow: private, operations: [read] }
-    ]
-  ) {
-  id: ID!
-  name: String!
-  location: String!
-  description: String!
-  image: String
-  owner: String
-  comments: [Comment] @connection
-}
-
-type Comment
-  @model
-  @auth(
-    rules: [
-      { allow: owner }
-      { allow: public, operations: [read] }
-      { allow: private, operations: [read] }
-    ]
-  ) {
-  id: ID
-  message: String
-  owner: String
-}
-```
-
-Now, we can create relationships between posts and comments. Let's test this out with the following operations:
-
-```graphql
-mutation createPost {
-  createPost(
-    input: {
-      id: "test-id-post-1"
-      name: "Post 1"
-      location: "Jamaica"
-      description: "Great vacation"
-    }
-  ) {
-    id
-    name
-    description
-  }
-}
-
-mutation createComment {
-  createComment(
-    input: { postCommentsId: "test-id-post-1", message: "Great post!" }
-  ) {
-    id
-    message
-  }
-}
-
-query listPosts {
-  listPosts {
-    items {
-      id
-      name
-      description
-      location
-      comments {
-        items {
-          message
-          owner
-        }
-      }
-    }
-  }
-}
-```
-
-If you'd like to read more about the `@auth` directive, check out the documentation [here](https://docs.amplify.aws/cli/graphql-transformer/directives#auth).
--->
-
-<!-- ## Real-time -->
-
-<!-- ### GraphQL Subscriptions
-
-Next, let's see how we can create a subscription to subscribe to changes of data in our API.
-
-To do so, we need to define the subscription, listen for the real-time data coming in from the subscription, & update the state whenever a new piece of data comes in.
-
-```js
-// import the subscription
-import { onCreateTalk as OnCreateTalk } from './graphql/subscriptions'
-
-// define the subscription in the class
-subscription = {}
-
-// subscribe in componentDidMount
-componentDidMount() {
-  this.subscription = API.graphql(
-    graphqlOperation(OnCreateTalk)
-  ).subscribe({
-      next: (eventData) => {
-        console.log('eventData', eventData)
-        const talk = eventData.value.data.onCreateTalk
-        if (talk.clientId === CLIENT_ID) return
-        const talks = [ ...this.state.talks, talk ]
-        this.setState({ talks })
-      }
-  })
-}
-
-// unsubscribe in componentWillUnmount
-componentWillUnmount() {
-  this.subscription.unsubscribe()
-}
-``` -->

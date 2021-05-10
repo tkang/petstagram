@@ -65,7 +65,7 @@ function AddNewPost() {
     const result = await Storage.put(file.name, file);
     console.log("upload result = ", result);
     const { key } = result;
-    setformData({ ...formData, image: key });
+    setFormData({ ...formData, image: key });
   }
 
   const disableBtn = submitInProgress || !isValidForm;
@@ -80,79 +80,84 @@ function AddNewPost() {
         />
       </Head>
 
-      <main className="flex-col items-center justify-center flex-1">
-        <form className="space-y-8 divide-y divide-gray-200">
-          <div className="space-y-8 divide-y divide-gray-200">
-            <div>
-              <div>
-                <h3 className="text-lg font-medium leading-6 text-gray-900">
-                  Add New Post
-                </h3>
-              </div>
-              <div className="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
-                <div className="sm:col-span-6">
-                  <label
-                    htmlFor="title"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    Title
-                  </label>
-                  <div className="mt-1">
-                    <textarea
-                      id="title"
-                      name="title"
-                      rows={1}
-                      className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      value={formData.title}
-                      onChange={handleChange}
-                    />
+      <div className="container mx-auto">
+        <main className="bg-white">
+          <AmplifySignOut />
+          <div className="px-4 py-16 mx-auto max-w-7xl sm:py-24 sm:px-6 lg:px-8">
+            <form className="space-y-8 divide-y divide-gray-200">
+              <div className="space-y-8 divide-y divide-gray-200">
+                <div>
+                  <div>
+                    <h3 className="text-lg font-medium leading-6 text-gray-900">
+                      Add New Post
+                    </h3>
+                  </div>
+                  <div className="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
+                    <div className="sm:col-span-6">
+                      <label
+                        htmlFor="title"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Title
+                      </label>
+                      <div className="mt-1">
+                        <textarea
+                          id="title"
+                          name="title"
+                          rows={1}
+                          className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                          value={formData.title}
+                          onChange={handleChange}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
+                    <div className="sm:col-span-6">
+                      <label
+                        htmlFor="description"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Description
+                      </label>
+                      <div className="mt-1">
+                        <textarea
+                          id="description"
+                          name="description"
+                          rows={3}
+                          className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                          value={formData.description}
+                          onChange={handleChange}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
+                    <div className="sm:col-span-6">
+                      <input
+                        type="file"
+                        onChange={handleFileInputChange}
+                      ></input>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
-                <div className="sm:col-span-6">
-                  <label
-                    htmlFor="description"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    Description
-                  </label>
-                  <div className="mt-1">
-                    <textarea
-                      id="description"
-                      name="description"
-                      rows={3}
-                      className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      value={formData.description}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
-                <div className="sm:col-span-6">
-                  <input type="file" onChange={handleFileInputChange}></input>
-                </div>
-              </div>
-            </div>
+              <button
+                onClick={createNewData}
+                type="button"
+                className={`disabled:opacity-50 inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${
+                  disableBtn && "cursor-not-allowed"
+                }`}
+              >
+                {submitInProgress ? "Submit In Progress..." : "Add New Post"}
+              </button>
+            </form>
           </div>
-
-          <button
-            onClick={createNewData}
-            type="button"
-            className={`disabled:opacity-50 inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${
-              disableBtn && "cursor-not-allowed"
-            }`}
-          >
-            {submitInProgress ? "Submit In Progress..." : "Add New Post"}
-          </button>
-        </form>
-      </main>
-
-      <br />
-      <AmplifySignOut />
+        </main>
+      </div>
 
       <footer></footer>
     </div>
