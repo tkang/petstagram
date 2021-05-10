@@ -1,6 +1,6 @@
 # Build a Photo Sharing App (Petstagram) with Next.js and AWS Amplify
 
-본 워크샾에서는, [Amplify](https://docs.amplify.aws/), Next.js, GraphQL 을 이용하여 full stack cloud application 을 만들어봅니다.
+본 워크샾에서는, [Amplify](https://docs.amplify.aws/), [Next.js](https://nextjs.org/), [GraphQL](https://graphql.org/) 을 이용하여 full stack cloud application 을 만들어봅니다.
 
 ### Overview
 
@@ -9,6 +9,8 @@
 이 앱은 기본 CRUD와 실시간 업데이트 기능이 들어갑니다. Facebook, Twitter, Instagram 과 같은 앱들을 보면, 목록에서 선택하면, 싱글 아이템을 볼수 있는 뷰로 들어갈수 있습니다. 이 앱도 그와 비슷하게, 사진과 이름, 위치, 상세정보가 들어있는 포스트의 목록들이 나오는 뷰와, 본인의 포스트 목록만 보여주는 뷰를 만들어보려 합니다.
 
 본 워크샾은 2~5시간 정도 걸릴것으로 예상됩니다.
+
+[최종 결과물 Demo](https://dev.d39wi50i5nk2ll.amplifyapp.com)
 
 ### Environment
 
