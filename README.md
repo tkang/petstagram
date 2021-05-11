@@ -222,6 +222,29 @@ amplify 프로젝트 상태를 Amplify console 로 확인하고 싶다면, `ampl
 $ amplify console
 ```
 
+### Configuring your Next applicaion
+
+API 가 생성되고 준비되었으니, app 을 통해 테스트 해봅시다.
+
+우선 해야할일은, 우리가 만들고 있는 app 에서 Amplify project 에 대해 인식하도록 설정하는 것입니다. src 폴더 안에 자동생성된 `aws-exports.js` 파일을 참조하도록 추가해봅시다.
+
+설정을 하기위해 **pages/\_app.js** 파일을 열고, 다음 코드를 추가합니다.
+
+```diff
+  import '../styles/globals.css'
++ import Amplify from "aws-amplify";
++ import config from "../src/aws-exports";
++ Amplify.configure(config);
+
+  function MyApp({ Component, pageProps }) {
+    return <Component {...pageProps} />
+  }
+
+  export default MyApp
+```
+
+위 코드가 추가되면, app 에서 AWS service 를 이용할 준비가 됩니다.
+
 ## Hosting
 
 Amplify Console 은 배포와 CI 를 위한 hosting 서비스 입니다.
@@ -358,29 +381,6 @@ query listPosts {
   }
 }
 ```
-
-### Configuring the React applicaion
-
-API 가 생성되고 준비되었으니, app 을 통해 테스트 해봅시다.
-
-우선 해야할일은, 우리가 만들고 있는 app 에서 Amplify project 에 대해 인식하도록 설정하는 것입니다. src 폴더 안에 자동생성된 `aws-exports.js` 파일을 참조하도록 추가해봅시다.
-
-설정을 하기위해 **pages/\_app.js** 파일을 열고, 다음 코드를 추가합니다.
-
-```diff
-  import '../styles/globals.css'
-+ import Amplify from "aws-amplify";
-+ import config from "../src/aws-exports";
-+ Amplify.configure(config);
-
-  function MyApp({ Component, pageProps }) {
-    return <Component {...pageProps} />
-  }
-
-  export default MyApp
-```
-
-위 코드가 추가되면, app 에서 AWS service 를 이용할 준비가 됩니다.
 
 ### app 에서 GraphQL API 를 통해 데이터 쿼리해오기
 
