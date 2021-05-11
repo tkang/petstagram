@@ -204,7 +204,11 @@ $ amplify init
 
 > **Distribution Directory Path 는 꼭 `out` 으로 변경해주세요.** (next.js 에서 build 후 export 를 하면 out 디렉토리로 결과물이 들어갑니다.)
 
-Amplify CLI 로 새로운 프로젝트를 초기화가 되면, **amplify** 폴더와 **src** 폴더아래 `aws-exports.js` 파일을 확인할수 있습니다. 이 파일이 amplify 프로젝트의 설정값들을 저장하고 있습니다.
+> `amplify init` 초기화가 끝나면, **amplify** 폴더가 생성되고 **src** 폴더아래 `aws-exports.js` 파일이 생성됩니다.
+
+> **src/aws-exports.js** 는 amplify 의 설정값들이 들어있습니다.
+
+> **amplify/team-provider-info.json** 파일에는 amplify 프로젝트의 back-end 환경(env) 관련 변수들이 들어가 있습니다. 다른 사람들과 동일한 백엔드 환경을 공유하고 싶다면, 이 파일을 공유하면 됩니다. 만약에 프로젝트를 공개하고 싶은 경우라면 이 파일은 빼주는게 좋습니다. (.gitignore 에 추가) [관련문서](https://docs.amplify.aws/cli/teams/shared)
 
 amplify 프로젝트의 상태를 보고 싶다면 `amplify status` 명령어로 확인하실수 있습니다.
 
